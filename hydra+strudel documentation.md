@@ -369,3 +369,73 @@ osc(18, 0.1, 0).color(2, 0.1, 2)
 .scale(1, () =>  (a.fft[0]*0.9 + 2)).diff(o1).out(o0)
 osc(20, 0.2, 0).color(2, 0.7, 0.1).mult(osc(40)).modulateRotate(o0, 0.2)
 .rotate(0.2).out(o1)'
+
+
+****
+
+i can't find the correct hydra patch that i did. when i copy paste what
+i have in the documentation file im getting errors.
+
+here is the correct link: [HYPERLINK](https://hydra.ojack.xyz/?sketch_id=VTt5GAmoQuTsmYjQ)
+
+my strudel patch :[HYPERLINK](https://strudel.cc/?twYHkomtPJ3w)
+
+new strudel patch with ag cook inspiration : https://strudel.cc/?iPqriFqbxOET
+
+i need drums and bass?
+
+strudel + hydra for now :
+
+[HYPERLINK]()
+
+'javascript
+await initHydra()
+
+noise(20)
+.color(1,0,.2).shift(0.3)
+.add(noise(2).rotate(2))
+  .add(noise(3).kaleid(99))
+.mult(noise(20).thresh(1).brightness())
+.modulateScale(noise(1).add(solid(1,1), -0.5),1)
+.blend(src(o0),.99)
+
+.out(o0)
+
+osc(3, 0,[2.2, 1. , 3.5]).modulate(src(o0),1)
+
+osc(3, 0,[2.2, 1. , 3.5]).modulate(src(o1),1).scale(0.5, 0.1, 1, 10)
+
+  .modulate(noise(3).scale(0.2, 110)).out(o1)
+
+
+s2.initCam()
+src(s2).color(-3, -1).add(noise(3).kaleid(99)).out(o2)
+
+s3.initCam()
+src(s3).color(3, -1).layer(osc(0, 1, 0,1).color(0,0,0,()=>Math.sin(time*100))).out(o3)
+
+
+
+render()
+
+
+$: sound("brown")._scope().delay(1)
+$: s("crackle*4").density("<0.01 0.04 0.2 0.5>".slow(2))._scope().crush("<16 8 7>")
+$: note("c#4, e4, d#4").struct("x ~ ~ ~").lpf("<1000 500>").slow(5).phaser("<1 8>")
+
+$: note("g#4, g#5") .struct("<~ ~ x ~ ~ ~ ~ ~ >").lpf("<1000 500>").crush("16")
+
+$: note("e4, a4, c#4") .struct("< x x ~ ~ >").lpf(500).delay("<0.5 1>")
+
+$: note("d#4, a4, c#4") .struct("< ~ ~ x ~ >").lpf(500).delay("1").room(".8").size("4").phaser("<8 1>")
+
+
+$: note("e6 e6 c#5 [a5,d#5]").mask("<1 [0 1]>").lpf("<500 1000>").delay("<0 .25 .5 1>").pan("<.5 1 .5 0>")
+
+$: n(rand.range(0,12).segment(6)) .scale("a3:lydian") .s("gm_guitar_harmonics").jux(iter(4)).phaser("<8 1>").room("1").pan("<.5 1 .5 0>")
+
+$: n(rand.range(0,12).segment(6)) .scale("a5:lydian") .s("gm_whistle").jux(iter(4)).phaser("<8 1>").distort(.1).room("1").gain(1)
+$: n(rand.range(0,12).segment(6)) .scale("a4:lydian") .s("gm_guitar_harmonics").delay("<.5 1>").distort(3).gain(.1)
+
+
+'
