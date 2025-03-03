@@ -445,3 +445,9 @@ s("white"!16).gain(0.5).decay(sine.mul(0.015).fast(4))
 const mymelody = "c d e g";
 
 put this at the top and then put something in your music to sync it with bpm.
+
+apply to livecode nyc open call. join their discord network
+
+next week in class performance with all documentation. keep documenting your debugging.
+
+[NEW UPDATES ON PATCH]https://strudel.cc/?DY_ytEp6JSM3
