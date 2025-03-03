@@ -376,17 +376,15 @@ osc(20, 0.2, 0).color(2, 0.7, 0.1).mult(osc(40)).modulateRotate(o0, 0.2)
 i can't find the correct hydra patch that i did. when i copy paste what
 i have in the documentation file im getting errors.
 
-here is the correct link: [HYPERLINK](https://hydra.ojack.xyz/?sketch_id=VTt5GAmoQuTsmYjQ)
+[here is the correct link:](https://hydra.ojack.xyz/?sketch_id=VTt5GAmoQuTsmYjQ)
 
-my strudel patch :[HYPERLINK](https://strudel.cc/?twYHkomtPJ3w)
+[my strudel patch] (https://strudel.cc/?twYHkomtPJ3w)
 
-new strudel patch with ag cook inspiration : https://strudel.cc/?iPqriFqbxOET
+[new strudel patch with ag cook inspiration] https://strudel.cc/?iPqriFqbxOET
 
 i need drums and bass?
 
-strudel + hydra for now :
 
-[HYPERLINK]()
 
 'javascript
 await initHydra()
