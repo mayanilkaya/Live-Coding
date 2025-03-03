@@ -437,3 +437,11 @@ $: n(rand.range(0,12).segment(6)) .scale("a4:lydian") .s("gm_guitar_harmonics").
 
 
 '
+
+######for hihats:
+s("white"!16).gain(0.5).decay(sine.mul(0.015).fast(4))
+
+######audio reactivity with hydra:
+const mymelody = "c d e g";
+
+put this at the top and then put something in your music to sync it with bpm.
