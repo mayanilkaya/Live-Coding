@@ -438,16 +438,117 @@ $: n(rand.range(0,12).segment(6)) .scale("a4:lydian") .s("gm_guitar_harmonics").
 
 '
 
-######for hihats:
-s("white"!16).gain(0.5).decay(sine.mul(0.015).fast(4))
 
-######audio reactivity with hydra:
+*audio reactivity with hydra*
 const mymelody = "c d e g";
 
 put this at the top and then put something in your music to sync it with bpm.
 
-apply to livecode nyc open call. join their discord network
-
-next week in class performance with all documentation. keep documenting your debugging.
 
 [NEW UPDATES ON PATCH]https://strudel.cc/?DY_ytEp6JSM3
+
+###### i guess i'm trying to create a beat?
+
+I want a glitchy minimal microbeat.
+
+I added this as maybe bass or just for some low frequency rumbling:
+
+'javascript
+s: s(("sine").gain("1")).segment(12)
+.lpf("2000")'
+
+going to go back and forth between fast(5) and fast(2).
+5 is more rumbly and 2 is more like a bass
+1.5 for gain and 8 for postgain seems like a good balance for now.
+
+***hihats***
+
+'javascript
+$: s("white!32?").gain(0.5).decay(.1)'
+
+learned the white noise trick for hihats in class
+when we had the strudel developer visit.
+
+decay is .1 because I want it to be a short sound.
+
+actualy !16? is better, 32 was too busy.
+
+I had .mul(0.015) in this code, but can't tell the difference without it so i'm getting rid of it.
+i also had fast(5) but it sounds better at its normal speed so getting rid of that too.
+
+I want to add a phaser sweep so it's more dynamic.
+I added a phasersweep, and delayfeedback.
+the delayfeedback is changing between paraemetrs so I made the delay change too, to create even more of a dynamic contrast.
+
+to have a little bit of a groove,
+
+I've added
+
+$: sound("bd*2,<white pink brown>*8")
+.decay(.04).sustain(0)
+
+i'm randomizing it with fats(sine)so that we don't have the same beat and so that it's fun.
+added some distortion but i'm having trouble gainstaging.
+distort("2:0.5") and .postgain(0.5) seems to work for now.
+
+going back to bass, i deleted distortion. postgain at 4 is the perfect mix with the chords.
+
+I've layered all of my chords, the bass and the beat and the beat sounds too loud. even when i adjust the gain/postgain parameters.
+
+*it's because i had 0.9 in for gain where it should've been 0.1 for quieter. also i changed its place with fast(sine), so maybe bringing it up forward helped too*
+
+i like the feel of it but i don't like how dry it sounds.
+coarse makes it more interesting.
+
+added decay(0.1) and prelease(0.1)
+ to get a shorter release. i repeated decay twice,
+and i'm not sure what that means but there is a difference when i do it and don't do it.
+i like the sound beter with it repated.
+ i wanted to change the timbre a little bit but im not sure how.
+
+
+added attack and degrade by. i can change the fastnesss from sine to 10 to get a fast beat, and degrade it and add the attacks to add variations.
+
+moving on to the hihat:
+
+i dont like how long the release and decay is even thoguh
+when i put in values that would have it shorter.
+I changed decay to 0 (you have to have sustain lower than 1 for decay to work), and white noise turned into a click. i like this more for microbeat .
+
+I copied what i did for the whie noise for a g0 sine wave. i wanted to double it to get a fuller sound.
+
+i created this kick:
+$: note ("g0!16?").sound("sine").gain(10)
+  .coarse("<2 4 6 8>*4")
+.postgain(.8)
+.lpf("<500 700>")
+
+but when i paste it on my actual patch it sounds really distorted and not what its suppposed o be like. i just have to be careful of the gain levels.
+
+okay after adjusting the gains, i have the micro beat i want. i can just change the parameters i want when performing to create variations i like.
+
+*taking the ambient section in and out is important to hear the beat.*
+
+sounds better without the low frequencies droning( i was trying to create a weird bass)
+
+[here is my strudel patch so far](https://strudel.cc/?nh7ZqiyT7Q2L)
+
+i don't like my melodies:
+
+i added the const slider. i'm not exactly sure what i want the melodies to sound like.
+i don't really want to have a specific melody i guess.
+
+[with the slider](https://strudel.cc/?0onI6612zoDX)
+
+I realized I didn't really want to have a melody, so to create a new section I changed the key to C from A lydian. I've created a section with pads and using the seed, ribbon and degradeby function to have pitches enter for a really short amount of time and leave. there wasn't really much troubleshooting or debugging going on other than trying to create a composition i liked.
+
+[hopefully final version](https://strudel.cc/?6jMt7EZZYCZB)
+
+### adding my HYDRA PATCH
+
+[link for hydra](https://hydra.ojack.xyz/?code=JTJGJTJGJTIwbGljZW5zZWQlMjB3aXRoJTIwQ0MlMjBCWS1OQy1TQSUyMDQuMCUyMGh0dHBzJTNBJTJGJTJGY3JlYXRpdmVjb21tb25zLm9yZyUyRmxpY2Vuc2VzJTJGYnktbmMtc2ElMkY0LjAlMkYlMEFub2lzZSgyMCklMEEuY29sb3IoMSUyQzAlMkMuMikuc2hpZnQoMC4zKSUwQS5hZGQobm9pc2UoMikucm90YXRlKDIpKSUwQSUyMCUyMC5hZGQobm9pc2UoMykua2FsZWlkKDk5KSklMEEubXVsdChub2lzZSgyMCkudGhyZXNoKDEpLmJyaWdodG5lc3MoMSkpJTBBLm1vZHVsYXRlU2NhbGUobm9pc2UoMSkuYWRkKHNvbGlkKDElMkMxKSUyQyUyMC0wLjUpJTJDMSklMEEuYmxlbmQoc3JjKG8wKSUyQy45OSklMEElMEEub3V0KG8wKSUwQSUwQW9zYygzJTJDJTIwMCUyQyU1QjIuMiUyQyUyMDEuJTIwJTJDJTIwMy41JTVEKS5tb2R1bGF0ZShzcmMobzApJTJDMSklMEElMEFvc2MoMyUyQyUyMDAlMkMlNUIyLjIlMkMlMjAxLiUyMCUyQyUyMDMuNSU1RCkubW9kdWxhdGUoc3JjKG8xKSUyQzEpLnNjYWxlKDAuNSUyQyUyMDAuMSUyQyUyMDElMkMlMjAxMCklMEElMEElMjAlMjAubW9kdWxhdGUobm9pc2UoMykuc2NhbGUoMC4yJTJDJTIwMTEwKSkub3V0KG8xKSUwQSUwQSUwQXMyLmluaXRDYW0oKSUwQXNyYyhzMikuY29sb3IoLTMlMkMlMjAtMSkuYWRkKG5vaXNlKDMpLmthbGVpZCg5OSUyQygpJTNEJTNFTWF0aC5zaW4odGltZSo2KSkpLm91dChvMiklMEElMEFzMy5pbml0Q2FtKCklMEFzcmMoczMpLmNvbG9yKDMlMkMlMjAtMSkuYWRkKG5vaXNlKDkpLmNvbG9yKDAlMkMxJTJDLTMlMkMoKSUzRCUzRU1hdGguc2luKHRpbWUqMSkpKS5vdXQobzMpJTBBJTBBJTBBJTBBcmVuZGVyKCklMEE%3D)
+
+i wanted to sink it to my music. the strudel documentation might be hekpful.
+
+
+[hydra + strudel without audioreactivity](https://strudel.cc/?FflxR_s3-_iW)
