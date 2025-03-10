@@ -447,6 +447,7 @@ put this at the top and then put something in your music to sync it with bpm.
 
 [NEW UPDATES ON PATCH]https://strudel.cc/?DY_ytEp6JSM3
 
+#### final
 ###### i guess i'm trying to create a beat?
 
 I want a glitchy minimal microbeat.
