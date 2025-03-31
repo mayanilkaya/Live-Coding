@@ -1,0 +1,21 @@
+# March 31
+## Tidal Cycles and Super collider
+
+-haskell
+-superdirt
+-super collider
+-osc messages
+-powerful because it runs on the computer engine
+-sends out clock info but doesn't receive it
+-everytime check audiomidi set up. open supercollider.
+
+## Tidal Cycles
+
+we assign the name of the orbits with d1, d2 etc.
+
+12 orbits is essentially 12 buses or channels.
+
+*if you wanted to record your tidal cycles, follow the steps on Rachel's
+repo. need an audio interface. rachel uses JACK. it's powerful for audio and
+midi routing but complicated to install and use.if you outgrow Blackhole, update
+to JACK.* 
