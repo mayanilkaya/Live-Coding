@@ -18,4 +18,7 @@ we assign the name of the orbits with d1, d2 etc.
 *if you wanted to record your tidal cycles, follow the steps on Rachel's
 repo. need an audio interface. rachel uses JACK. it's powerful for audio and
 midi routing but complicated to install and use.if you outgrow Blackhole, update
-to JACK.* 
+to JACK.*
+
+- you need to download OBS. order of operations on rachel's repo.
+OBS also works for window capture like if you wanted to record strudel.
