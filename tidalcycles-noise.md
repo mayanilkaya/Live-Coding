@@ -26,3 +26,27 @@ with a noisy/industrial texture so i got this sampple and told it to repeat 40 t
 silences which already changed the texture towards something that I wanted more. and then i added
 the squix and crush effects. i found out about freeze on the documentation website,
 i'm not really sure if it is doing anything but i was trying it out.
+
+here it is:
+
+'javascript
+d1 $ sound "wobble!30?" # djf sine # delay "1" # crush "[2| 16 | 4]"
+d1 silence
+
+d2 $ sound "909!16?" # djf sine # delay "1"
+  d2 silence
+
+d3 $ sound "hh!16?"
+  # djf sine
+  # squiz "6"
+  d3 silence
+
+d4 $ sound "bleep:7!20?" # crush "4" # distort "1" # djf sine
+d4 silence
+
+d5 $ sound "fm:4" # squiz "10" # lbrick sine
+d5 silence
+
+d6 $ s "space:2*40?" # squiz "[2 | 8 | 10 | 16]" # hbrick sine # freeze "1"
+d6 silence
+'
