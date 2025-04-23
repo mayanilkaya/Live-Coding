@@ -1,0 +1,37 @@
+april 23 documentation
+
+i have different layers of the same sample 'bev' looping at different speeds. i like the texture that gave.
+
+i added some different rhythmic elements, with some kicks and some samples i found that i liked,
+like beep and industial.
+
+i used the samples 'space' and glitch' to add to that rhythmic soundscape, as glitchy textures / maybe hihtats:
+
+setcps(130/60/4)
+
+d4 $ striate 3 $ s "industrial:0 industrial:1 industrial:2"
+d4 silence
+
+d5 $ striate 16 $ s "print"
+d5 silence
+
+d6 $ loopAt 16 $ s "bev" # delay "1"
+d6 silence
+
+d7 $ sound "909!16?" # djf sine # delay "1"
+d7 silence
+
+d8 $ sound "bleep:7!20?" # crush "4" # distort "1" # djf sine  # squiz "10" # lbrick sine
+d8 silence
+
+d9 $ randslice 8 $ s "bev"
+d8 silence
+
+d11 $ loopAt 7 $ s "bev"
+d11 silence
+
+d10 $ s "space:2*40?" # squiz "[2 | 8 | 10 | 16]" # hbrick sine # freeze "1"
+d10 silence
+
+d12 $ s "glitch:4*4?"
+d12 silence
