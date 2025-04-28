@@ -24,7 +24,7 @@ d11 silence
 d10 $ s "space:2*40?" # squiz "[2 | 8 | 10 | 16]" # hbrick sine # freeze "1"
 d10 silence
 
-d12 $ s "glitch:4*4?" # squiz "[2 | 8 | 10 | 16]" # hbrick sine # freeze "1" # delay 1
+d12 $ s "glitch:4*4?"
 d12 silence
 
 
